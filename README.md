@@ -5,3 +5,5 @@ Rust has the type `Result<T, E>` for recoverable errors and the `panic!` macro t
 an unrecoverable error.
 
 If the Result value is the `Ok` variant, `unwrap` will return the value inside the `Ok`. If the Result is the `Err` variant, `unwrap` will call the `panic!` macro.
+
+The `expect` method is similar to `unwrap` but also lets us choose the `panic!` error message. 

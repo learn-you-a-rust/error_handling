@@ -7,3 +7,5 @@ an unrecoverable error.
 If the Result value is the `Ok` variant, `unwrap` will return the value inside the `Ok`. If the Result is the `Err` variant, `unwrap` will call the `panic!` macro.
 
 The `expect` method is similar to `unwrap` but also lets us choose the `panic!` error message. 
+
+It's best to choose an error return type that corresponds to the error value(s) of any operation(s) that are called in the function. 

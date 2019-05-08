@@ -5,6 +5,33 @@ use std::io;
 use std::io::Read;
 use std::error::Error;
 
+// custom type for error handling where user should input an integer 1 to 100;
+// essentially outsources error handling so it doesn't clutter the code
+pub struct Guess {
+    // private field because this way outside code has to go through the check
+    // in the constructor below
+    value: i32,
+}
+
+impl Guess {
+    // validation occurs in the constructor for this type
+    pub fn new(value: i32) -> Guess {
+        if value < 1 || value > 100 {
+            panic!("Guess value must be between 1 and 100, got {}.", value);
+        }
+
+        Guess {
+            value
+        }
+    }
+
+    // "getter": returns value as i32
+    pub fn value(&self) -> i32 {
+        self.value
+    }
+}
+
+
 // this function propagates any errors back to the calling code
 fn read_username_from_file1() -> Result<String, io::Error> {
     let f = File::open("hello.txt");
